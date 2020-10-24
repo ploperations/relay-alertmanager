@@ -1,6 +1,6 @@
-# foobar-trigger-template
+# alertmanager-trigger-webhook-receiver
 
-This is the template webhook trigger for the foobar integration.
+This trigger receives webhook payloads from Prometheus Alertmanager.
 
 ## Data Emitted
 

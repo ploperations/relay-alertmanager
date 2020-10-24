@@ -1,15 +1,21 @@
 apiVersion: integration/v1
 kind: Integration
-name: template
-channel: stable
-version: v20200514
-summary: Integration template
+name: alertmanager
+channel: alpha
+version:
+  source: git-describe
+summary: Prometheus Alertmanager integration
 license: Apache-2.0
-homepage: https://github.com/relay-integrations/template
-source: https://github.com/relay-integrations/template
+homepage: https://github.com/ploperations/relay-alertmanager
+source: https://github.com/ploperations/relay-alertmanager
+icon: media/prometheus_logo_orange_circle.svg
 
 description: |
-  This is a template for creating a Relay Integration repository.
+  This integration facilitates receiving webhooks from Prometheus Alertmanger
+  and generating incidents in PagerDuty, tickets in Jira, and messages in Slack.
+  Each of these platforms need the data presented in a different way. so steps
+  have been created to process Alertmanager's webhook data and present it in a
+  way that works for each.
 
 owner:
   name: Puppet, Inc.
@@ -17,5 +23,5 @@ owner:
   url: https://puppet.com
 
 tags:
-- template
-- relay integration
+  - alerting
+  - monitoring
