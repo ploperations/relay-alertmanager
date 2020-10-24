@@ -1,23 +1,30 @@
 # Alertmanager Integration for Relay.sh
 
-This integration allows you to connect Foobar to Relay. Foobar is a ...
+This integration allows you to connect Prometheus Alertmanager to Relay.
 
 ## Steps
 
-| Name | Description |
-|------|-------------|
-| [foobar-step-notify](steps/foobar-step-notify) | This steps sends a notification to Foobar |
+| Name                                                                         | Description                                                                                                                                                     |
+|------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [append-pagerduty-incident-link](steps/append-pagerduty-incident-link)       | This step appends a hyperlink to a PagerDuty incident to a message                                                                                              |
+| [determine-service](steps/determine-service)                                 | This step determines what PagerDuty service to map an alert to                                                                                                  |
+| [generate-pagerduty-custom-detials](steps/generate-pagerduty-custom-detials) | This step generates the table that is shown in the Custom Details section of a PagerDuty incident                                                               |
+| [generate-pagerduty-links](steps/generate-pagerduty-links)                   | This step generates links from a PagerDuty incident to information in the system that generated each alert.                                                     |
+| [generate-slack-message-consumer](steps/generate-slack-message-consumer)     | This step creates a message to be sent to consumers of a service. This message is focused on end users instead of technical operators.                          |
+| [generate-slack-message-owner](steps/generate-slack-message-owner)           | This step creates a message to be sent to the operators of a service. This message includes much more technical information than an end user would want to see. |
+| [get-pagerduty-incident](steps/get-pagerduty-incident)                       | This step queries PagerDuty to find the id of incident triggered by the [PagerDuty event-send](https://relay.sh/steps/pagerduty/event-send) step.               |
+| [set-pagerduty-priority](steps/set-pagerduty-priority)                       | This step sets a PagerDuty priority on an incident based on information in an Alertmanager alert.                                                               |
 
 ## Triggers
 
-| Name | Description |
-|------|-------------|
-| [foobar-trigger-receive](triggers/foobar-trigger-receive) | Trigger to handle a webhook event from Foobar |
+| Name                                       | Description                                   |
+|--------------------------------------------|-----------------------------------------------|
+| [webhook-receiver](steps/webhook-receiver) | Trigger to handle a webhook from Alertmanager |
 
 ## Workflows
 
-| Name | Description |
-|------|-------------|
+| Name                                 | Description                                                                |
+|--------------------------------------|----------------------------------------------------------------------------|
 | [example1.yaml](workflows/example1/) | This workflow shows you how to link the Foobar steps and triggers together |
 
 ## Contributing
@@ -41,4 +48,3 @@ NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 ### License
 
 As indicated by the repository, this project is licensed under Apache 2.0.
-
