@@ -32,8 +32,13 @@ def set_priority(machine_data):
     priority = ''
     if alert_severity in machine_data:
         priority = alert_severity
+        print('priorty match in if block on line 35')
+        print(priority)
     else:
-        priority = machine_data[default_priority]
+        priority = machine_data[default_priority]['name']
+        print('priorty did not match, using this via line 38:')
+        print(priority)
+
     print("Setting priority of incident {_id} to {_pname} / {_pid}".format(
         _id=incident_id,
         _pname=machine_data[priority]['name'],
