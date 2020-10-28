@@ -39,10 +39,10 @@ def set_priority(machine_data):
         _pname=machine_data[priority]['name'],
         _pid=machine_data[priority]['id']))
     print("putting this data:")
-    print({'type':'incident', 'priority': machine_data[priority]})
+    print({'type': 'incident', 'priority': machine_data[priority]})
     session.rput(
         'incidents/{}'.format(incident_id),
-        json={'type':'incident', 'priority': machine_data[priority]})
+        json={'type': 'incident', 'priority': machine_data[priority]})
 
 
 if __name__ == '__main__':

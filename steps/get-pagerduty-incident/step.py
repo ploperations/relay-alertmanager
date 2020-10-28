@@ -20,7 +20,7 @@ def get_pd_incident():
         'incidents',
         params={'statuses[]': ['triggered', 'acknowledged']})
 
-    pd_incident_number = -1
+    pd_incident_id = 'not found'
     pd_html_url = 'not found'
     for i in incident_list:
         t = i['title']
@@ -28,18 +28,18 @@ def get_pd_incident():
         if t == alert_name and s == service_name:
             print('Matching incident found:')
             print(json.dumps(i, indent=2))
-            pd_incident_number = i['incident_number']
+            pd_incident_id = i['incident_id']
             pd_html_url = i['html_url']
             break
     return {
-        'pd_incident_number': pd_incident_number,
+        'pd_incident_id': pd_incident_id,
         'pd_html_url': pd_html_url
     }
 
 
 if __name__ == '__main__':
     data = get_pd_incident()
-    relay.outputs.set("pd_incident_number", data['pd_incident_number'])
+    relay.outputs.set("pd_incident_id", data['pd_incident_id'])
     relay.outputs.set("pd_html_url", data['pd_html_url'])
-    print("pd_incident_number: {}".format(data['pd_incident_number']))
+    print("pd_incident_id: {}".format(data['pd_incident_id']))
     print("pd_html_url: {}".format(data['pd_html_url']))
