@@ -28,7 +28,7 @@ def get_pd_incident():
         if t == alert_name and s == service_name:
             print('Matching incident found:')
             print(json.dumps(i, indent=2))
-            pd_incident_id = i['incident_id']
+            pd_incident_id = i['id']
             pd_html_url = i['html_url']
             break
     return {
